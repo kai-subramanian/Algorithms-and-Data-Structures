@@ -1,0 +1,13 @@
+obj-m += kern.o
+
+ifdef ARCH
+	KDIR = /home/kailash/build
+else
+	KDIR = /lib/modules/$(shell uname -r)/build
+enif
+
+all:
+	make -C $(KDIR) M=$(shell pwd) modules
+
+clean:
+	make -C $(KDIR) M=$(shell pwd) clean
