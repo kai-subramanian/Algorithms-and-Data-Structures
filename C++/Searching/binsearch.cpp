@@ -20,7 +20,7 @@ int binary_search(int a[],int x,int s,int f){
 
 int main(){
     int arr[]={1,3,5,7,9,11,13,15,17,19};
-    int target=14;
+    int target=100;
     int res = binary_search(arr,target,0,sizeof(arr)/sizeof(arr[0]));
     if(res!=-1)
         cout<<"Found at index "<<res<<endl;
