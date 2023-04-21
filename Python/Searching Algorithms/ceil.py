@@ -20,5 +20,5 @@ def ceiling(arr,t):
             return m
     return ans+1
 l = [1, 2, 3, 5, 7, 8, 9, 10, 22, 23]
-target = 999
+target = 11
 print(ceiling(l,target))
