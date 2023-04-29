@@ -23,16 +23,20 @@ void sumNodes(Node *root){
         cout<<"Yes"<<endl;
         sumNodes(root->left);
         sumNodes(root->right);
+    }else {
+        cout<<"No"<<endl;
+        return;
     }
 }
 
 int main(){
-    Node *n1=new Node(10);
+    Node *n1=new Node(11);
     Node *n2=new Node(8);
-    Node *n3=new Node(2);
+    Node *n3=new Node(3);
     Node *n4=new Node(3);
-    Node *n5=new Node(5);
+    Node *n5=new Node(6);
     Node *n6=new Node(2);
+    Node *n7=new Node(1);
 
     n1->left=n2;
     n1->right=n3;
@@ -41,6 +45,7 @@ int main(){
     n2->right=n5;
 
     n3->left=n6;
+    n3->right=n7;
     Node *r=n1;
 
     sumNodes(r);
