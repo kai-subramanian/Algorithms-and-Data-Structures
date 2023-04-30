@@ -30,8 +30,15 @@ class Queue{
     }
     void peek(){
         if (front>=0){
-            cout<<arr[front]<<endl;
+            cout<<"Frontmost element: "<<arr[front]<<endl;
         }
+    }
+
+    void display(){
+        for(int i=front;i<rear;i++){
+            cout<<arr[i]<<" ";
+        }
+        cout<<endl;
     }
 };
 
@@ -59,5 +66,7 @@ int main(){
     q.dequeue();
 
     q.peek();
+    q.display();
+    
     return 0;
 }
