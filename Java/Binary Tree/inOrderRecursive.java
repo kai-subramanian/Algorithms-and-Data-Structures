@@ -36,7 +36,7 @@ public class inOrderRecursive {
         n2.right=n5;
 
         n5.left=n6;
-        n6.right=n7;
+        n5.right=n7;
 
         inorder(n1);
     }
