@@ -23,7 +23,7 @@ class Vertex{
         vis[source]=true;
         while(!q.isEmpty()){
             int node=q.poll();
-            // System.out.print(node+" ");
+            System.out.print(node+" ");
             for(int x:mat.get(node)){
                 // if the node was not previously visited,
                 // explore its neighbours and push them to queue.
