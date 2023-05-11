@@ -6,36 +6,54 @@ class Node {
     int data;
 
     Node(int data) {
+        this.left=null;
+        this.right=null;
         this.data = data;
     }
 }
 
 public class inOrder {
-    List<Integer> getInorderTraversal(Node root) {
+    static List<Integer> getInorderTraversal(Node root) {
     	// add your logic here
 		Stack<Node> stack = new Stack<>();
         ArrayList<Integer> al = new ArrayList<>();
         Node curr = root;
-        while (!stack.isEmpty() || curr != null) {
-            while (curr != null) {
+
+        while(true){
+            if(curr!=null){
                 stack.push(curr);
-                curr = curr.left;
+                curr=curr.left;
+            } else{
+                if(stack.isEmpty()){
+                    break;
+                }
+                curr=stack.pop();
+                al.add(curr.data);
+                curr=curr.right;
             }
-            Node node = stack.pop();
-            al.add(node.data);
-            curr = node.right;
         }
         return al;
 	}
     public static void main(String args[]){
-        Node root = new Node(50);
-        root.left = new Node(10);
-        root.right = new Node(20);
-        root.left.left = new Node(30);
-        root.left.left.right = new Node(40);
-        root.left.right = new Node(60);
-        root.right.left = new Node(70);
-        root.right.right = new Node(80);
-        root.right.left.left = new Node(90);
+        Node n1=new Node(1);
+        Node n2=new Node(2);
+        Node n3=new Node(3);
+        Node n4=new Node(4);
+        Node n5=new Node(5);
+        Node n6=new Node(6);
+        Node n7=new Node(7);
+
+        System.out.println(n1);
+        n1.left=n2;
+        n1.right=n3;
+
+        n2.left=n4;
+        n2.right=n5;
+
+        n5.left=n6;
+        n6.right=n7;
+
+        List<Integer> answer=getInorderTraversal(n1);
+        System.out.println(answer);
     }
 }
