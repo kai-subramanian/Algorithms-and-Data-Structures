@@ -2,22 +2,8 @@
 #include<list>
 #include<vector>
 
-
 using namespace std;
-
 vector<bool>vis;
-
-bool DFS(vector<vector<int>>mat, int i, vector<bool>v){
-    if(v[i]){
-        return false;
-    }
-    v[i]=true;
-    for(auto it:mat[i]){
-        DFS(mat,it,v);
-    }
-    return true;
-}
-
 int connectedCounter(vector<vector<int>>mat){
     vis.resize(mat.size(),false);
     int c=0;
