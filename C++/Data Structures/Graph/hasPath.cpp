@@ -4,59 +4,34 @@
 #include<list>
 using namespace std;
 
-class Graph{
- public:
-    int v,e;
-    vector<vector<int>>mat;
-    Graph(int x){
-        v=x;
-        e=0;
-        mat.resize(v);
-    }
-    void addEdge(int u,int v){
-        mat[u].push_back(v);
-        mat[v].push_back(u);
-        e++;
-    }
-    bool findpath(){
-        list<int>q;
-        vector<bool>vis;
-        vis.resize(v,false);
-        q.push_back(0);
-        vis[0]=true;
-        while(!q.empty()){
-            int x=q.front();
-            cout<<x<<" ";
-            q.pop_front();
-            for(auto it:mat[x]){
-                if(!vis[it]){
-                    vis[it]=true;
-                    q.push_back(it);
-                }
-            }
-        }
-        bool hasPath=true;
-        for(auto it=vis.begin();it!=vis.end();it++){
-            if(*it==false){
-                hasPath=false;
-                break;
-            }
-        }
-        cout<<endl;
-        return hasPath;
-    }
-};
-
-int main(){
-    Graph g(5);
-    g.addEdge(0,1);
-    g.addEdge(0,2);
-    g.addEdge(1,2);
-    g.addEdge(1,3);
-    g.addEdge(2,3);
-    g.addEdge(3,4);
-    g.addEdge(4,0);
+bool isPath(vector<vector<int>>n,int s,int d){
+    list<int>q;
+    q.push_back(s);
     
-    cout<<g.findpath()<<endl;   
+    while(!q.empty()){
+        int x=q.front();
+        q.pop_front();
+        if(x==d){
+            return true;
+        }
+        for(auto it:n[x]){
+            q.push_back(it);
+        }
+    }
+    return false;
+}
+int main(){
+
+    int v=5,e=0;
+    vector<vector<int>>mat;
+    mat.resize(v);
+    mat[0].push_back(2);e++;
+    mat[1].push_back(2);e++;
+    mat[3].push_back(2);e++;
+    mat[3].push_back(4);e++;
+    mat[4].push_back(0);e++;
+
+    cout<<isPath(mat,3,0)<<endl;
+    cout<<isPath(mat,4,0)<<endl;
     
 }   
