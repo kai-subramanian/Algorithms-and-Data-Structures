@@ -18,18 +18,18 @@ class Graph{
     }
     void DFS(int n){
         stack<int>s;
-        vector<bool>vis(v,false);
-        s.push(n);
+        vector<bool>vis;
+        vis.resize(ans.size(),false);
         vis[n]=true;
+        s.push(n);
         while(!s.empty()){
             int a=s.top();
-            s.pop();
             cout<<a<<" ";
-            for(int i=0;i<ans[a].size();i++){
-                int v=ans[a][i];
-                if(!vis[v]){
-                    s.push(v);
-                    vis[v]=true;
+            s.pop();
+            for(auto it:ans[a]){
+                if(!vis[it]){
+                    s.push(it);
+                    vis[it]=true;
                 }
             }
         }
