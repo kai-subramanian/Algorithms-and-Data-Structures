@@ -45,7 +45,7 @@ int connectedCounter(vector<vector<int>>mat){
 int main(){
 
     vector<vector<int>>mat;
-    mat.resize(7);
+    mat.resize(9);
     mat[0].push_back(2);
     mat[2].push_back(0);
 
@@ -63,6 +63,9 @@ int main(){
 
     mat[5].push_back(6);
     mat[6].push_back(5);
+
+    mat[7].push_back(8);
+    mat[8].push_back(7);
 
     vector<bool>vis(mat.size(),false);
 
